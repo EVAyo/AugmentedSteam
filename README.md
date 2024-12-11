@@ -5,7 +5,6 @@
 [![Edge users](https://img.shields.io/badge/dynamic/json?label=Edge%20users&query=%24.activeInstallCount&url=https://microsoftedge.microsoft.com/addons/getproductdetailsbycrxid/dnpjkgmekpilchdgolfifobohlohlioc&logo=microsoftedge)](https://microsoftedge.microsoft.com/addons/detail/augmented-steam/dnpjkgmekpilchdgolfifobohlohlioc)
 
 [![Discord](https://img.shields.io/discord/301903094080339968?label=Discord&logo=discord)](https://discord.gg/yn57q7f)
-![eslint](https://github.com/IsThereAnyDeal/AugmentedSteam/workflows/eslint/badge.svg)
 
 Augmented Steam is a browser extension by [IsThereAnyDeal](https://isthereanydeal.com/) that improves your experience on the [Steam](https://store.steampowered.com/) platform by providing helpful information and tons of customization options.
 
@@ -48,18 +47,6 @@ Run `npm run build firefox` or `npm run build chrome`
 Run `npm run build firefox -- --production` or `npm run build chrome -- --production`
 
 > *Note:* Run `npm run build -- --help` to see all available build options
-
-### Hot Reload
-
-During development, it might be convenient to run the hot reload server, so you don't need to reload the extension manually
-after each build.
-
-To do that, run `build` with the `--server` argument. Make sure to manually reload the extension for the first time after the hot reload build.
-> *Example:* `npm run build -- firefox --server`
-
-Now, for every change you make in the source code, the server will rebuild and reload the extension and refresh all affected pages automatically.
-
-In case the hot reload doesn't work or stops working, try restarting the server and reloading the extension manually.
 
 ## License
 

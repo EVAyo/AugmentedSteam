@@ -1,3 +1,256 @@
+4.2.1: |
+  Hotfix release
+  
+  - fixed custom urls not working properly, when the replacement was in the path part of the URL
+
+4.2.0: |
+  Valve continues to update Steam and fully rebuild it in React. The recent wishlist update they did was just that.
+  Even though it looks the same as the old version, everything has changed and works in a very different way. 
+  That provides some new challenges for us, and we expect them to continue page by page in a similar fashion.
+  
+  That said, this update brings the most of the Wishlist functionality back, hopefully Steam won't break it again too quickly.
+  
+  Some of the site-wide common features were not yet ported over (the removal of trademarks from names, for example),
+  and some of the things may no longer be possible. A known issue is that if you change your rank in any of the sorting
+  other than "Your rank", and then go back to that one, Steam won't update your ranking automatically,
+  becase we can no longer easily attach to Steam's code and tell it that something has changed (the other way works fine).
+
+  Some other non-wishlist changes:
+  - fixed custom links that contained &
+  - fixed store assets, using new CDN
+  - fixed missing FKeepSSACheckboxState in register key context 
+
+4.1.2: |
+  Bugfix release
+  
+  - fixed ITAD sync. Turns out, sync was like, entirely broken. Most of the time. It should be fixed now and sync should sync again.
+  - added Sync Events to options to see what and when was actually synced
+  - fixed context menus ceasing to work after few minutes 
+  - fixed Achievements sorting. Again
+  - fixed profile wishlist count for languages other than English
+  - fixed DLC checkbox for "recommended DLC"
+  - added support for Trending Free as a default home page tab
+
+4.1.1: |
+  Hotfix notes storage. See changelog of previous version for full notes:
+  
+  First release of Augmented Steam manifest v3 on all platforms.
+  
+  This release features major changes in sync with IsThereAnyDeal. You can now sync your game notes (and see all of them at ITAD),
+  and detailed Collection view is back, better than before. If you have connected Augmented Steam with IsThereAnyDeal
+  in the past, you will need to re-connect, due to new features which require more permissions.
+  
+  # Features
+  - you can now sync your game notes with IsThereAnyDeal
+  - detail Collection view is back, now with more details than before
+  - add option to append friends nicknames directly in friends list
+  - optimized sync with ITAD
+  
+  # Bugfixes
+  - fixed switching user notes adapters
+  - fixed emptying wishlist getting stuck and not cleaning anything
+  - fixed "Open external links in new tab" option not being respected
+  - fixed regional price comparison country selection
+  - fixed customizer options not saving
+  - fixed DRM warnings (#1950)
+  - fixed regional container colliding with subscription dropdown (#1969, thx Trsnaqe)
+  - tweaked pricing position with changes to Steam UI
+  - fixed SteamPeek hovers
+  - fixed language warning not showing properly
+  - fixed groups sorting only working on own profile
+  - fixed achievements sorting
+  - fixed fetching purchase dates
+  - fixed cards page badge completion cost styling issues (#1985)
+  - improved handling of search shortcut
+  - fixed removal of private app indicator on community pages
+  - fixed invite to group and market overview
+  - fixed the "Most Popular" guides date range dropdown not working when "Don't automatically filter guides by user language" is enabled
+  - fixed race condition when showing booster cards price (#2003)
+  - fixed trade offer features
+  
+  And a lot of other tweaks and minor fixes.
+  
+
+4.1.0: |
+  First release of Augmented Steam manifest v3 on all platforms.
+  
+  This release features major changes in sync with IsThereAnyDeal. You can now sync your game notes (and see all of them at ITAD),
+  and detailed Collection view is back, better than before. If you have connected Augmented Steam with IsThereAnyDeal
+  in the past, you will need to re-connect, due to new features which require more permissions.
+  
+  # Features
+  - you can now sync your game notes with IsThereAnyDeal
+  - detail Collection view is back, now with more details than before
+  - add option to append friends nicknames directly in friends list
+  - optimized sync with ITAD
+  
+  # Bugfixes
+  - fixed switching user notes adapters
+  - fixed emptying wishlist getting stuck and not cleaning anything
+  - fixed "Open external links in new tab" option not being respected
+  - fixed regional price comparison country selection
+  - fixed customizer options not saving
+  - fixed DRM warnings (#1950)
+  - fixed regional container colliding with subscription dropdown (#1969, thx Trsnaqe)
+  - tweaked pricing position with changes to Steam UI
+  - fixed SteamPeek hovers
+  - fixed language warning not showing properly
+  - fixed groups sorting only working on own profile
+  - fixed achievements sorting
+  - fixed fetching purchase dates
+  - fixed cards page badge completion cost styling issues (#1985)
+  - improved handling of search shortcut
+  - fixed removal of private app indicator on community pages
+  - fixed invite to group and market overview
+  - fixed the "Most Popular" guides date range dropdown not working when "Don't automatically filter guides by user language" is enabled
+  - fixed race condition when showing booster cards price (#2003)
+  - fixed trade offer features
+  
+  And a lot of other tweaks and minor fixes.
+
+4.0.1: |
+  - fixed wishlist link in some cases not showing correct count on community profiles
+  - fixed group sort missing
+  - fixed sort not being applied on page load
+  - fixed YouTube Reviews link on app pages
+  - fixed family sharing notice not being displayed correctly
+  - fixed profile data not being loaded properly
+  
+  Big shoutout to candela97 for making these fixes so quickly
+
+4.0.0: |
+  Major extension rewrite, that doesn't look like much.
+  
+  Google is forcing Manifest v3 on everyone, and so if we want Augmented Steam to keep working in Chrome, we had to comply.
+  We took that chance and also improved our code base, but besides Options being a little bit different,
+  you should not notice many other changes.
+  
+  There's a big chance we have broken something during rewrite or due to Manifest v3 working a little bit differently.
+  Please let us know about these.
+
+3.1.1: |
+  - add highlight and tag support for ignored marked as owned elsewhere
+  - fix wishlist prices display
+  - fix achievement sorting when dates have no year
+  - fix player stats not respecting settings
+  - fix link filter disable feature
+  - fix detecting inventory gifts
+  - fix background preview links in point shop (until Steam breaks it again)
+  - reduced number of "you're not logged in to SteamCommunity" errors
+
+3.1.0: |
+  - fix formatting of price overview on app pages
+  - fix bundle header showing even when there are no bundles listed
+  - fix historical low showing incorrect shop
+  - return info about how many times game was bundled
+  - fix some games not being highlighted properly (#1847)
+  - fix error when toggling checkboxes for free DLCs
+  - redo how players stats show up
+  - fix shopping cart history link not showing up
+  - fix profile background and style features not showing up
+  - fix achievements sorting
+  - remove deprecated features
+
+3.0.0: |
+  Maintenance release to make sure Augmented Steam plays well with the updated ITAD and backing server.
+
+2.6.0: |
+  New Features:
+  - Add summary table for statistics about your acquired items on the licenses page (L1Q)
+  
+  Fixes:
+  - Fix complete extension crash when "Replace account name with community name" is enabled
+  - Fix shrinking SteamDB buttons on app pages
+  - Fix instant dismissal of one-time dialog when adding items to your cart
+  - Fix discount percentage filter removing all search results
+  - Fix not skipping community content warnings
+  - Fix error on importing extension settings
+  - Fix improper loading of badges when sorting alphabetically
+  - Fix warning dialog for exceeded storage space never appearing
+  
+  Miscellaneous changes:
+  - Improve relevance of YouTube queries on app pages (gmikhail)
+  - Keep stores for ITAD price comparison up-to-date by periodically fetching supported stores
+  - Unsaved user notes are now temporarily stored per-game instead of sharing a single slot
+  - Separate DRM warnings from purchase boxes for clarity on product pages (sparr)
+
+2.5.0: |
+  New Features:
+  - Wishlist: Add feature to show hidden apps in the stats popup
+  - Wishlist: Make wishlist header a link to profile 
+  - Search: Add discount percentage filter (thomeval)
+  - Inventory: Allow equipping more profile item types directly from the inventory
+  - Review pages: Add sorting by reward count
+  - Badges: Add the ability to sort badges by least cards remaining to complete set
+  - Store page: Remove duplicate screenshots
+  
+  Fixes:
+  - Fix the option to hide or replace the "Install Steam" button (this crashed the whole extension)
+  - Greatly reduce the frequency of the red login warning banner
+  - Fix unresponsive wishlist when user notes are enabled
+  - Fix total value calculation on wishlist pages
+  - Fix adding bundles to cart when the "no redirect" feature is enabled on wishlist pages
+  - Fix review sorting on reviews pages
+  - Fix spam hiding feature
+  - Fix tab image placement after clicking tabs on workshop home
+  - Fix not disabling the "Show all" button after it has been clicked on profile stats pages (Carl0sCheca)
+  - Fix broken "View all" link and category selections when removing language tag on guides pages
+  - Fix display of game stats on your games pages
+  - Fix loss of user notes when multiple tabs are used to store notes
+  - Fix tag insertion for search results
+  - Fix possible interference of keyboard shortcut "s" with other extensions
+  - Fix adding items to Waitlist on store pages
+  - Fix tag placement for discounted DLCs on store pages
+
+  Miscellaneous improvements:
+  - Show alert and stop sending requests when the lowest price requests have time out on the market home page
+  - Add progress info when calculating total size of subscribed workshop items
+  - Add Early Access banners to SteamPeek recommendations on app pages
+  - Improve the game search for selecting a custom background on the profile edit page
+
+2.4.1: |
+  - Avoid free promotions getting added to Cart
+  - Fix protocol for custom 3rd party links (pidanmeng)
+  - Improve store country detection on market-related pages
+  - Other minor fixes
+
+2.4.0: |
+  New Features
+  - Add option to stay on the page after you add game to your cart, instead of redirecting to the cart
+  - Add shortcut for store search; search field gains focus if you press "s" key
+  - Add option to always show Steam deck compatibility in the features list on the app page
+  - Add feature to show hidden achievements
+  - Add link to your shopping cart history on the cart page
+  - Show hex variant of SteamID64 on community profiles (Xseba360)
+  - Auto hide video player controls and cursor while video is playing
+  
+  Market
+  - Improved handling of lowest market price
+  - Fix market stats loading in non-English languages
+  - Improve quick sell handling by showing an error message if quick sell fails and try to make fails less frequent
+  - Fix sell listings sorting
+  
+  Apps
+  - Video player volume fixes: volume setting now persists across session, and mute is respected even when manually playing, stopping or seeking in video
+  - No longer show How Long To Beat box if the game has no data
+  - Fix achievement progress bar and text display if text was too long
+  - Update WSGF medals (RoseTheFlower)
+  - Improve handling of app page customization
+  - Improve handling of regional prices
+  - Fix developer/publisher search page links not working when there are multiple developers/publishers
+  - Fix various issues with the HD switch on videos
+  - Show total price cut with voucher, instead of only deal's cut
+  
+  Wishlist
+  - Improve wishlist stats display. Stats are now visible under button so it doesn't take unnecessary space and minimizes the risk of breaking wishlist (drag to reorder)
+  - Optimize wishlist import to IsThereAnyDeal
+  
+  Community
+  - Fix achievement sorting when profile privacy is not set to public (currently only unlocked achievements are being sorted)
+  - Improve achievements sorting
+  - Fix points shop background preview link
+  - Update Steam's CDN for when we were referencing their images
+
 2.3.3: |
   - Fix Steam showing reported tags as applied (#1423)
   - Add confirmation dialog when deleting comments (#1166)

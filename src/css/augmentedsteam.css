@@ -33,241 +33,22 @@
   height: 400px;
 }
 /**
- * https://github.com/IsThereAnyDeal/AugmentedSteam/pull/1329
- * Fix clipped bottom section on the interactive recommender page
+ * https://github.com/IsThereAnyDeal/AugmentedSteam/issues/1472
+ * Fix achievement progress bar and text display
  */
-[class^=interactiverecommender_BottomSection] {
-  overflow-y: visible !important;
+.achieveTxt.withProgress {
+  width: 100%;
 }
-
-/* Back To Top button */
-.es_btt {
-  position: fixed;
-  display: flex;
-  width: 50px;
-  height: 50px;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  opacity: 0;
-  visibility: hidden;
-  box-shadow: 0 0 10px 2px #000000;
-  left: 50%;
-  bottom: 20px;
-  top: auto;
-  margin-left: 500px;
-  font-size: 22px;
-  border-radius: 50%;
-  cursor: pointer;
-  background: linear-gradient( to bottom, rgba(33,101,138,1) 5%, rgba(23,67,92,1) 95%);
-  transition: visibility 0s 200ms, opacity 200ms ease-in-out;
-  color: white;
-}
-.es_btt:hover {
-  background: linear-gradient( to bottom, rgba(47,137,188,1) 5%, rgba(23,67,92,1) 95%);
-}
-.es_btt.is-visible {
-  opacity: 1;
-  visibility: visible;
-  transition: visibility, opacity 200ms ease-in-out;
-}
-
-/**
- * Customize button on storefront and app pages
- * Taken from: https://steamstore-a.akamaihd.net/public/css/v6/home.css
- */
-#es_customize_btn {
-  text-align: left;
-}
-#es_customize_btn .es_customize_title {
-  display: inline-block;
-  padding-right: 3px;
-  padding-left: 8px;
-  margin: 0 1px;
-  line-height: 20px;
-  text-align: center;
-  font-size: 11px;
-  cursor: pointer;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-#es_customize_btn .es_customize_title img {
-  vertical-align: text-bottom;
-}
-#es_customize_btn:hover .es_customize_title {
-  text-decoration: none;
-  color: #111111;
-  border-radius: 1px;
-  background: linear-gradient(135deg, #ffffff 0%, #919aa3 100%);
-}
-#es_customize_btn .home_viewsettings_popup {
-  position: absolute;
-  color: #384959;
-  padding: 12px 11px;
-  width: 200px;
-  z-index: 10;
-  box-shadow: 0 0 12px #000000;
-  background: linear-gradient(to bottom, #e3eaef 5%, #c7d5e0 95%);
-  right: 0px;
-  opacity: 0;
-  visibility: hidden;
-  transition: visibility 0s 0.2s, opacity 0.2s ease-in-out;
-}
-#es_customize_btn.active .home_viewsettings_popup {
-  opacity: 1;
-  visibility: visible;
-  transition: visibility, opacity 0.2s ease-in-out;
-}
-#es_customize_btn .home_viewsettings_instructions {
-  margin-bottom: 12px;
-  font-size: 12px;
-}
-#es_customize_btn .home_viewsettings_checkboxrow {
-  background: rgba(0, 0, 0, 0.2);
-  margin-bottom: 1px;
-  padding: 2px;
-  line-height: 14px;
-  color: #222d3d;
-  font-size: 10px;
-  cursor: pointer;
-}
-#es_customize_btn .home_viewsettings_checkboxrow:hover {
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.3);
-}
-#es_customize_btn .home_viewsettings_checkbox {
-  float: left;
-  margin-right: 5px;
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  background-image: url('https://steamstore-a.akamaihd.net/public/images/v6/customize_checkboxes.png');
-  background-position: 0px 0px;
-}
-#es_customize_btn .home_viewsettings_checkbox.checked {
-  background-position: 0px 28px;
-}
-#es_customize_btn .home_viewsettings_label {
-  text-transform: capitalize;
-}
-
-.es_tabs {
-  position: relative;
-  overflow-x: auto;
-  white-space: nowrap;
-  height: 31px;
-}
-.es_tabs .home_tab {
-  margin-top: 6px;
-  border: none;
-  display: inline-block;
-  margin-right: 0px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  font-size: 13px;
-  color: #2f89bc;
-  line-height: 24px;
-  cursor: pointer;
-  vertical-align: top;
-}
-.es_tabs .home_tab.active {
-  background: linear-gradient(top, rgba(103,193,245,1) 0%,rgba(103,193,245,0) 100%);
-  margin-top: 0;
-  box-shadow: none;
-  padding: 1px;
-}
-.es_tabs .home_tab:hover {
-  color: #ffffff;
-}
-.es_tabs .home_tab .tab_content {
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  font-size: 13px;
-  color: #4f94bc;
-  line-height: 24px;
-  padding: 0 10px;
-  cursor: pointer;
-  vertical-align: top;
-}
-.es_tabs .home_tab.active .tab_content {
-  line-height: 29px;
-  font-size: 14px;
-  color: #ffffff;
-  background: #1a2737;
-  text-shadow: -1px -1px rgba( 0, 0, 0, 0.25 );
-  cursor: default;
-  margin-top: 0;
-  box-shadow: none;
-}
-.es_tabs .home_tab .tab_content:hover {
-  color: #ffffff;
-  background: linear-gradient(-60deg,  #67c1f5 0%,#417a9b 100%);
-}
-
-#recommended_block_content.es_steam_active > .es_sp_similar {
-  display: none;
-}
-#recommended_block_content.es_sp_active > .es_steam_similar {
-  display: none;
-}
-.es_sp_similar:last-of-type:hover > .es_sp_similar__link {
-  color: #ffffff;
-}
-.es_sp_similar__link {
-  width: 171px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  padding: 0 10px;
+.achieveTxt h3.ellipsis {
   white-space: normal;
-  text-align: center;
-  background-color: #1b2838;
-  color: #67c1f5;
 }
+
 
 img.astats_icon {
   width: 16px;
   margin-left: 4px;
 }
 
-.es_tab.active .tab_content {
-  background-color: #0003 !important;
-}
-
-.chart-stat {
-  float: left;
-  text-align: center;
-  width: 120px;
-  margin-top: 25px;
-  padding-left: 15px;
-}
-.chart-stat span {
-  font-size: 1.8em;
-  font-weight: 300;
-}
-
-.chart-content {
-  display: flex;
-  background-color: transparent;
-  width: 592px;
-  padding: 2px 12px;
-  overflow: hidden;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.chart-footer {
-  font-size: 11px;
-  float: right;
-  padding-top: 5px;
-  margin-bottom: 20px;
-}
-
-#steam-charts .chart-footer,
-#steam-spy .chart-footer {
-  padding-right: 13px;
-}
 
 .es_each {
   color: #626366;
@@ -287,51 +68,6 @@ img.astats_icon {
   height: 31px;
   float: left;
   margin-left: 3px;
-}
-
-.es_btn_systemreqs {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-.itad-pricing {
-  padding: 5px 5px 5px 42px;
-  height: auto !important;
-  border-bottom: 0;
-  font-size: 12px;
-  color: #a8b2ba;
-  background-color: rgba(0, 0, 0, 0.2);
-  background-repeat: no-repeat;
-  background-position: 9px center;
-  background-size: 24px;
-  display: grid;
-  grid-template-columns: min-content min-content auto;
-  grid-column-gap: 10px;
-  white-space: nowrap;
-  line-height: 1.5;
-  align-items: baseline;
-}
-.itad-pricing__main {
-  white-space: normal;
-}
-.itad-pricing__cut {
-  color: #a4d007;
-}
-.itad-pricing__price {
-  font-size: 1.1em;
-  color: #acdbf5;
-  text-align: right;
-}
-.itad-pricing__voucher {
-  font-weight: bold;
-  font-size: 1.1em;
-}
-.itad-pricing__drm {
-  text-transform: uppercase;
-  color: #626366;
-}
-.itad-pricing__bundled {
-  grid-column: 2 / span 2
 }
 
 .wishlist_row {
@@ -354,86 +90,11 @@ img.astats_icon {
   opacity: 1;
 }
 
-#es_market_summary span, .es_loading span {
+/* throbber loading image --TODO check usage */
+.es_loading span {
   vertical-align: top;
   line-height: 32px;
   margin-left: 5px;
-}
-#es_market_summary_status {
-  display: flex;
-  align-items: center;
-}
-#es_market_summary_status img {
-  margin-right: 10px;
-}
-
-.es_market_summary_item {
-  float: right;
-  line-height: inherit !important;
-}
-.es_percentage_higher {
-  color: #ff1717;
-}
-.es_percentage_lower {
-  color: #60ad0a;
-}
-
-.es_drm_warning {
-  display: table;
-  width: 100%;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  min-height: 38px;
-  background: linear-gradient(rgb(73, 22, 26) 0%, rgb(191, 48, 34) 100%);
-}
-.es_drm_warning span {
-  display: table-cell;
-  vertical-align: middle;
-  line-height: normal;
-  padding: 0 15px;
-}
-
-.performance-graph {
-  margin-top: -10px;
-  background: linear-gradient(135deg, rgba(97, 100, 101, 0.3) 0%, rgba(226, 244, 255, 0.3) 100%);
-  width: 98%;
-  border-radius: 6px;
-  border: 1px solid #524f4e;
-  overflow: hidden;
-}
-.performance-graph .row {
-  height: 18px;
-  overflow: hidden;
-}
-.performance-graph .row .nvidia {
-  background: #72b100;
-  color: black;
-}
-.performance-graph .row .amd {
-  background: #8f0e10;
-}
-.performance-graph .row .intel {
-  background: #0b5997;
-  color: #fafaf2;
-}
-.performance-graph .row .other {
-  background: black;
-}
-.performance-graph .left-bar {
-  height: 100%;
-  text-align: center;
-  float: left;
-  position: relative;
-}
-.performance-graph .right-bar {
-  background: rgba(0, 0, 0, 0.0);
-  min-width: 30px;
-  height: 100%;
-  text-align: left;
-  float: left;
-}
-.performance-graph .right-bar span {
-  padding-left: 5px;
 }
 
 /***************************************
@@ -468,72 +129,6 @@ img.astats_icon {
   font-size: 14px !important;
 }
 
-/***************************************
- * Store and Community wishlist buttons
- **************************************/
-.es-loading-wl {
-  width: 16px;
-  filter: brightness(350%); /* to make the image more consitent with others, feel free to replace the image and remove this */
-}
-
-#es_wishlist_success img,
-#es_wishlist_add img {
-  margin: 7px 0;
-  vertical-align: top;
-}
-
-#es_wishlist_fail {
-  position: absolute;
-  right: 0px;
-}
-
-.queue_actions_ctn:not(.loading) #add_to_wishlist_area_success > a:hover .es-in-wl,
-.apphub_OtherSiteInfo:not(.loading) #es_wishlist_success:hover .es-in-wl {
-  display: none !important;
-}
-.queue_actions_ctn:not(.loading) #add_to_wishlist_area_success > a:hover .es-remove-wl,
-.apphub_OtherSiteInfo:not(.loading) #es_wishlist_success:hover .es-remove-wl {
-  display: inline !important;
-}
-.queue_actions_ctn.loading img,
-.apphub_OtherSiteInfo.loading img {
-  display: none;
-}
-.queue_actions_ctn.loading #add_to_wishlist_area_success .es-loading-wl,
-.apphub_OtherSiteInfo.loading #es_wishlist_success .es-loading-wl,
-.apphub_OtherSiteInfo.loading #es_wishlist_add .es-loading-wl {
-  display: inline !important;
-}
-
-/***************************************
- * Wishlist and Games page stats
- **************************************/
-#esi-wishlist-stats-content,
-#esi-games-stats-content {
-  display: flex;
-  padding: 25px;
-  overflow: hidden;
-  justify-content: space-evenly;
-  align-items: center;
-  font-size: 1.6em;
-  text-align: center;
-}
-.esi-stat {
-  display: flex;
-  flex-direction: column;
-}
-.esi-stat span {
-  font-size: 1.8em;
-  font-weight: 300;
-}
-#esi-wishlist-stats-content .esi-stat {
-  color: #222d3d;
-  font-weight: bold;
-}
-#esi-wishlist-stats,
-#esi-wishlist-stats-content .esi-stat span {
-  color: white;
-}
 
 /***************************************
  * Game Cards page
@@ -688,7 +283,7 @@ img.astats_icon {
   display: inline;
 }
 
-/** Flyout menus, taken from https://steamstore-a.akamaihd.net/public/css/v6/store.css */
+/** Flyout menus, taken from https://store.cloudflare.steamstatic.com/public/css/v6/store.css */
 .as_flyout_menus .store_nav {
   display: inline;
   float: none;
@@ -723,7 +318,7 @@ img.astats_icon {
   height: 12px;
   padding: 0;
   display: inline-block;
-  background-image: url('https://steamstore-a.akamaihd.net/public/images/v6/btn_arrow_down_padded.png');
+  background-image: url('https://store.cloudflare.steamstatic.com/public/images/v6/btn_arrow_down_padded.png');
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
@@ -731,7 +326,7 @@ img.astats_icon {
 }
 .as_flyout_menus .store_nav .tab:hover > span.pulldown > span,
 .as_flyout_menus .store_nav .tab.focus > span.pulldown > span {
-  background-image: url('https://steamstore-a.akamaihd.net/public/images/v6/btn_arrow_down_padded_white.png');
+  background-image: url('https://store.cloudflare.steamstatic.com/public/images/v6/btn_arrow_down_padded_white.png');
 }
 .as_flyout_menus .popup_block_new .popup_body {
   border: none;
@@ -745,31 +340,12 @@ img.astats_icon {
 }
 
 /***************************************
- * Games page
- * FCommonGames
- **************************************/
-.common_filter_ctn {
-  display: none !important; /* hide Steam's checkbox */
-}
-.esi-hide-common .esi-common,
-.esi-hide-notcommon .esi-notcommon {
-  display: none !important; /* ensure the filter options work alongside filtering by keywords */
-}
-.es_games_filter {
-  margin-bottom: 6px;
-}
-
-/***************************************
  * Achievement stats page
- * FAchievementSort
+ * FShowHiddenAchievements
  **************************************/
-.esi_ach_unlocked + .esi_ach_locked,
-.esi_ach_locked + .esi_ach_unlocked {
-  margin-top: 62px;
-}
-.esi_ach_avatars {
-  min-height: 66px;
-  margin-bottom: 18px;
+#as_ach_showall {
+  margin-left: auto;
+  margin-right: 6px;
 }
 
 /***************************************
@@ -796,18 +372,25 @@ img.astats_icon {
 
 /***************************************
  * User Inventory
- * Quicksell/instantsell action buttons
+ * FQuickSellOptions
  **************************************/
-.item_market_actions a.item_market_action_button {
+.es_qsell_ctn .btn_small {
   margin-bottom: 4px;
   overflow: hidden;
   width: max-content;
-  display: block;
+}
+.es_qsell_ctn .btn_small,
+.es_qsell_loading {
+  display: none;
+}
+.view_inventory_page .item.btn_disabled,
+.item_market_actions .item_market_action_button.btn_disabled {
+  pointer-events: none;
 }
 
 /***************************************
  * User Inventory
- * addPriceToGifts()
+ * FAddPriceToGifts
  **************************************/
 .es_game_purchase_action {
   margin-bottom: 16px;
@@ -1025,50 +608,14 @@ img.astats_icon {
   font-family: 'Motiva Sans', sans-serif;
   font-weight: bold;
   cursor: pointer;
-}
-.es_playback_sd .es_hd_toggle span {
   opacity: 0.4;
 }
-
-/***************************************
- * App pages
- * FAchievementBar
- **************************************/
-.es-achieveBar-store {
-  float: right;
-}
-/* Taken from: https://steamcommunity-a.akamaihd.net/public/css/skin_1/playerstats_generic.css */
-.es-achieveBar-store .achieveBar {
-  background: #3a3a3a;
-  padding: 1px;
-  border: 1px solid #aeaeae;
-  width: 176.9px;
-}
-.es-achieveBar-store .achieveBarProgress {
-  height: 8px;
-  background-color: #aeaeae;
+.es_playback_hd .es_hd_toggle {
+  opacity: 1;
 }
 
-/***************************************
- * App pages
- * FReviewToggleButton
- **************************************/
-.es_review_section {
-  overflow: hidden;
-}
-#review_create.es_contracted .es_review_section {
-  max-height: 0;
-}
-#es_review_toggle {
-  float: right;
-}
-#review_create.es_contracted .es_review_contract,
-#review_create:not(.es_contracted) .es_review_expand {
-  display: none;
-}
-#review_create.es_contracted .es_review_expand,
-#review_create:not(.es_contracted) .es_review_contract {
-  display: block;
+video.highlight_movie:hover + .html5_video_overlay {
+  transition: bottom 0.2s linear;
 }
 
 /***************************************
@@ -1082,18 +629,35 @@ img.astats_icon {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
+.as_btn_wishlist .btnv6_blue_hoverfade img {
+  vertical-align: middle;
+  margin-left: -6px;
+  margin-top: -2px;
+  margin-right: 3px;
+}
 .queue_btn_menu.on_wishlist #queue_menu_option_on_wishlist .queue_ignore_menu_option_image.selected,
 .queue_btn_menu.on_waitlist #queue_menu_option_on_waitlist .queue_ignore_menu_option_image.selected {
   display: inline-block;
 }
+.es-loading-wl {
+  width: 16px;
+  /* Makes the image more consistent with others */
+  filter: brightness(350%);
+}
+.queue_actions_ctn:not(.loading) .as_btn_wishlist a:hover img.es-remove-wl {
+  display: inline !important;
+}
 .queue_btn_menu.on_wishlist #queue_menu_option_on_wishlist .queue_ignore_menu_option_image.unselected,
-.queue_btn_menu.on_waitlist #queue_menu_option_on_waitlist .queue_ignore_menu_option_image.unselected {
+.queue_btn_menu.on_waitlist #queue_menu_option_on_waitlist .queue_ignore_menu_option_image.unselected,
+.queue_actions_ctn:not(.loading) .as_btn_wishlist img:not(.es-in-wl),
+.queue_actions_ctn.loading .as_btn_wishlist img:not(.es-loading-wl),
+.queue_actions_ctn:not(.loading) .as_btn_wishlist a:hover img:not(.es-remove-wl) {
   display: none;
 }
 
 /***************************************
  * App pages
- * addFullscreenScreenshotView()
+ * FFullscreenScreenshotView
  **************************************/
 .es_screenshot_fullscreen_toggle {
   position: absolute;
@@ -1108,17 +672,17 @@ img.astats_icon {
   margin: 5px;
 }
 .es_screenshot_open_btn {
-	position: absolute;
-	right: 24%;
-	bottom: 0;
+  position: absolute;
+  right: 24%;
+  bottom: 0;
 }
 .es_screenshot_open_btn i {
-	display: block;
-	background-position: center;
-	background-repeat: no-repeat;
-	width: 16px;
-	height: 16px;
-	margin: 5px;
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  margin: 5px;
 }
 .screenshot_popup_modal_content:fullscreen .es_screenshot_fullscreen_toggle i {
   background-position: bottom left;
@@ -1160,60 +724,21 @@ img.astats_icon {
   border-radius: 100px;
   padding: 0 1em;
 }
-.screenshot_popup_modal_content:fullscreen .screenshot_popup_modal_footer > .previous::before {
-  content: '';
+.screenshot_popup_modal_content:fullscreen .screenshot_popup_modal_footer > .previous::before,
+.screenshot_popup_modal_content:fullscreen .screenshot_popup_modal_footer > .next::before {
+  content: "";
   position: absolute;
-  left: 0;
   bottom: 0;
   width: 40vw;
   height: 100vh;
 }
-
-/***************************************
- * Store and Community
- * add_language_warning(),
- * add_fake_country_code_warning()
- **************************************/
-.es_warn {
-  font-size: 12px;
-  padding: 8px 0;
-  text-align: center;
-  background: linear-gradient(#9a2820 0%, #d63525 100%);
-  color: white;
+.screenshot_popup_modal_content:fullscreen .screenshot_popup_modal_footer > .previous::before {
+  left: 0;
+}
+.screenshot_popup_modal_content:fullscreen .screenshot_popup_modal_footer > .next::before {
+  right: 0;
 }
 
-.es_warn__cnt {
-  max-width: 940px;
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
-  line-height: 20px;
-}
-.es_warn__cnt a {
-  text-decoration: underline;
-}
-
-.es_warn__control {
-  white-space: nowrap;
-}
-
-.es_warn__btn {
-  background: linear-gradient(135deg, #faa 0%,#d46a6a 100%);
-  padding: 0 10px;
-  color: black;
-  text-transform: uppercase;
-  font-size: 11px;
-  border-radius: 1px;
-  text-decoration: none !important;
-  display: inline-block;
-  line-height: 20px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.es_warn__btn:hover {
-  background: linear-gradient(135deg, #801515 0%,#500 100%);
-  color: white;
-}
 
 /***************************************
  * Wishlist
@@ -1238,64 +763,6 @@ img.astats_icon {
 #cart_status_data {
   display: flex;
   align-items: center;
-}
-
-.es-wbtn {
-  color: #fff;
-  float: right;
-  cursor: pointer;
-  font-size: 11px;
-  text-transform: uppercase;
-  padding: 0 25px;
-  line-height: 20px;
-}
-#es_empty_wishlist {
-  margin-right: 3px;
-  background-color: #bf5a5a;
-}
-#es_empty_wishlist:hover {
-  background-color: #ffd1d1;
-  color: black;
-}
-#es_export_wishlist {
-  background-color: #6c94a0;
-  margin-right: 15px;
-}
-#es_export_wishlist:hover {
-  background-color: #dbdee1;
-  color: black;
-}
-
-.es-wexport {
-  margin-bottom: 30px;
-}
-.es-wexport__label {
-  margin-right: 30px;
-  vertical-align: baseline;
-}
-.es-wexport__label input[type=radio] {
-  position: relative;
-  top: 2px;
-}
-.es-wexport__input {
-  width: 400px;
-  color: #b9bfc6;
-  background-color: #313c48;
-  box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset;
-  border-radius: 3px;
-  font-size: 12px;
-  padding: 3px 4px;
-  border: none;
-}
-.es-wexport__symbols {
-  margin-top: 2px;
-  font-size: 11px;
-}
-.es-wexport__format.es-grayout {
-  opacity: 0.4;
-  pointer-events: none;
-  -webkit-user-select: none;
-  user-select: none;
 }
 
 /***************************************
@@ -1345,145 +812,13 @@ img.astats_icon {
   color: #5fafdd;
 }
 
-/***************************************
- * App pages
- * Common/FRegionalPricing
- **************************************/
-.es_regional_prices .game_purchase_action,
-.es_regional_prices .discount_block.game_purchase_discount {
-  overflow-x: initial !important;
-  overflow: visible !important;
-}
-.es_regional_prices:not(.es_regional_always) .es_regional_onmouse {
-  cursor: help;
-}
-.es_regional_icon {
-  padding-left: 23px !important;
-  background-repeat: no-repeat !important;
-  background-position: 8px 8px !important;
-}
-.es_regional_icon.price {
-  padding-left: 30px !important;
-}
-.es_regional_container {
-  z-index: 999;
-  background: linear-gradient(to bottom, #33425a 5%, #282f3d 100%);
-  padding: 7px 8px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
-  border: 1px solid black;
-  margin-top: -25px;
-  text-align: left;
-}
-.es_regional_container > .es_regional_arrow {
-  border-top: 9px solid transparent;
-  border-bottom: 9px solid transparent;
-  border-left: 8px solid #313f56;
-  position: absolute;
-  top: 12px;
-  right: -8px;
-  width: 0;
-  height: 0;
-}
-.es_regional_prices:not(.es_regional_always) .es_regional_container {
-  display: none;
-  position: absolute;
-  pointer-events: none;
-  top: 20px;
-  right: 100%;
-}
-.es_regional_always::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.es_regional_always .es_regional_container {
-  display: block;
-  position: relative;
-  float: right;
-  margin-bottom: 5px;
-  margin-top: auto;
-}
-.es_regional_onmouse:hover .es_regional_container {
-  display: block !important;
-}
-
-/** Regional price comparison popup */
-.es-regprice {
-  display: flex;
-  align-items: baseline;
-  font-size: 14px;
-  white-space: nowrap;
-}
-.es-regprice__converted {
-  font-size: 12px;
-  text-align: right;
-  flex-grow: 1;
-  min-width: 60px;
-  margin-left: 5px
-}
-.es-regprice__perc {
-  font-size: 12px;
-  margin-left: 5px;
-  width: 60px;
-  text-align: right;
-}
-.es-regprice__perc::after {
-  content: "";
-  width: 0;
-  height: 0;
-  margin-left: 4px;
-  margin-bottom: 2px;
-  position: relative;
-  display: inline-block;
-  border-color: transparent;
-  border-style: solid;
-}
-.es-regprice__perc--higher {
-  color: #ff1717;
-}
-.es-regprice__perc--equal {
-  color: #e5e500;
-}
-.es-regprice__perc--lower {
-  color: #60ad0a;
-}
-.es-regprice__perc--higher::after {
-  border-width: 0 5px 5px 5px;
-  border-bottom-color: #ff1717;
-}
-.es-regprice__perc--equal::after {
-  width: 6px;
-  content: "=";
-}
-.es-regprice__perc--lower::after {
-  border-width: 5px 5px 0 5px;
-  border-top-color: #60ad0a;
-}
-.es-regprice__none {
-  font-size: 12px;
-}
-
-/**
- * https://github.com/IsThereAnyDeal/AugmentedSteam/issues/389
- * Fix unclickable dropdowns
- */
-.ds_options_tooltip {
-  z-index: 99999 !important;
-}
 
 /***************************************
  * App pages
  * Common/FExtraLinks
  **************************************/
-.es_app_btn {
-  display: block !important;
-  margin-bottom: 6px;
-}
-.es_app_btn .ico16 {
-  margin-right: 12px !important;
-}
 .es_extralinks_ctn .es_app_btn:last-of-type {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 .es_extralinks_ctn {
   text-align: center;
@@ -1496,29 +831,6 @@ img.astats_icon {
 .es_apphub_OtherSiteInfo {
   position: relative;
   float: right;
-}
-
-/***************************************
- * Version update dialog
- **************************************/
-.es_changelog {
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  max-width: 800px
-}
-.es_changelog p {
-  margin-bottom: 0.4em;
-}
-.es_changelog img { margin-right: 21px; }
-.es_changelog ul {
-  padding: 0 10px 10px 10px;
-  margin: 0 0 0 15px;
-}
-
-.es_changelog li {
-  margin-bottom: 3px;
 }
 
 /***************************************
@@ -1565,13 +877,7 @@ img.astats_icon {
   float: left;
   margin-left: 8px;
 }
-.game_area_dlc_price .es_tags {
-  margin-top: -1px;
-}
-.game_area_dlc_price .es_tags ~ div {
-  display: inline-block;
-}
-.match .es_tags {
+.match_app .es_tags {
   float: right;
   margin-left: 5px;
 }
@@ -1632,213 +938,19 @@ img.astats_icon {
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.80);
 }
 
-/**
- * https://github.com/jshackles/Enhanced_Steam/issues/778
- * Use original selection background color for live search entries that are both selected and highlighted
- */
-.search_suggest .match.focus {
-  background: #212d3d !important;
-}
-
 /***************************************
  * Common
  * FEarlyAccess
  **************************************/
-.es_overlay,
-.es_overlay img {
-  position: absolute;
-  z-index: 4; /* Should be lower than .ds_flag (currently 5) */
-  width: auto !important;
-  height: 60%;
-  min-height: 35px;
-  max-height: 120px;
-}
-.es_overlay img {
-  position: relative;
-  height: 100% !important;
-}
-
 .es_early_access .broadcast_live_stream_icon {
   display: none; /* Hide broadcast icon since it gets in the way */
 }
 
-.home_content_item .es_overlay_container,
-.small_cap .es_overlay_container,
-.special.special_img_ctn .es_overlay_container,
-.leftcol .es_overlay_container,
-.review_app_actions .gameLogoHolder_default .es_overlay_container {
-  position: relative;
-  display: inherit;
-}
-.home_content.single .es_overlay {
-  z-index: 11;
-}
 .home_content.single.es_early_access > .gamelink > .ds_flag {
   z-index: 12;
 }
-.curator_featured .es_overlay {
-  height: 25%;
-}
 .tab_item.es_early_access > .tab_item_cap {
   line-height: 48px;
-}
-.store_capsule .es_overlay_container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  vertical-align: top;
-}
-.store_capsule .es_overlay_container > img {
-  width: 100%;
-}
-
-/***************************************
- * Site wide
- * get_http()
- **************************************/
-.es_progress {
-  float: right;
-  position: relative;
-  margin-top: 55px;
-  width: 100px;
-  min-width: 16px;
-  height: 16px;
-  box-sizing: content-box;
-  border-radius: 8px;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.20);
-}
-.es_progress--error,
-.es_progress--warning,
-.es_progress--complete {
-  width: 16px;
-}
-.es_progress,
-.es_progress__value {
-  transition: width 1s ease-in-out;
-}
-.es_progress__value {
-  width: 18px;
-}
-/* This prevents the black bleeding from "es_progress__bar" background
-	around the edges of "es_progress__value" to make it look smoother */
-.es_progress--error .es_progress__value,
-.es_progress--warning .es_progress__value,
-.es_progress--complete .es_progress__value {
-  width: calc(100% + 4px) !important;
-}
-.es_progress--complete {
-  animation: delayBoxShadowGreen linear 1s;
-  animation-fill-mode: forwards;
-}
-.es_progress--error, .es_progress--warning {
-  cursor: help;
-  animation: linear 1s;
-  animation-fill-mode: forwards;
-}
-.es_progress--error {
-  animation-name: delayBoxShadowRed;
-}
-.es_progress--warning {
-  animation-name: delayBoxShadowYellow;
-}
-.es_progress--error::before, .es_progress--warning::before {
-  display: block;
-  content: "!";
-  position: absolute;
-  top: 2px;
-  right: 0;
-  left: 0;
-  line-height: 12px;
-  text-align: center;
-  font-size: 14px;
-  font-family: Impact, Charcoal, sans-serif;
-  text-shadow: 0 0 1px black;
-}
-.es_progress-error::before {
-  color: rgb(255, 149, 149);
-}
-.es_progress--warning::before {
-  color: white;
-}
-.es_progress .es_progress__bar {
-  background-color: black;
-  border-radius: 8px;
-}
-.es_progress__value {
-  height: 16px;
-  margin-left: -2px;
-  background-color: #51771d;
-  border-radius: 8px;
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 5%, rgba(255, 255, 255, 0) 95%);
-}
-.es_progress--error .es_progress__value, .es_progress--warning .es_progress__value {
-  transition: unset;
-  border-radius: 8px;
-}
-.es_progress--error .es_progress__value {
-  background-color: #b31414;
-}
-.es_progress--warning .es_progress__value {
-  background-color: #d9ab05;
-}
-@keyframes delayBoxShadowRed {
-  100% {
-    box-shadow: 0 0 8px 1px #b31414;
-  }
-}
-@keyframes delayBoxShadowYellow {
-  100% {
-    box-shadow: 0 0 8px 1px #d9ab05;
-  }
-}
-@keyframes delayBoxShadowGreen {
-  100% {
-    box-shadow: 0 0 8px 1px #51771d;
-  }
-}
-.es_progress__wrap {
-  position: relative;
-  float: right;
-}
-.es_progress__error, .es_progress__warning {
-  display: none;
-  color: #ccc;
-  font-size: 11px;
-  background-color: #333;
-  border: 1px solid #444;
-  position: absolute;
-  min-width: 200px;
-  max-width: 250px;
-  padding: 5px;
-  top: 52px;
-  right: 22px;
-  font-size: 11px;
-  list-style-position: inside;
-}
-.es_progress__error span, .es_progress__warning span {
-  word-break: break-all;
-}
-.es_progress__error::before, .es_progress__warning::before {
-  content: "";
-  display: block;
-  background-color: #444;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  top: 5px;
-  right: -5px;
-  z-index: -1;
-  transform: rotateZ(45deg);
-}
-.es_progress__error ul, .es_progress__warning ul {
-  margin: 0 0 0 6px;
-  padding: 0;
-}
-.es_progress__wrap:hover .es_progress__error, .es_progress__wrap:hover .es_progress__warning {
-  display: block !important;
 }
 
 /***************************************
@@ -1859,154 +971,8 @@ img.astats_icon {
 }
 
 /***************************************
- * Market
- * add_market_sort()
- **************************************/
-.es_marketsort {
-  cursor: pointer;
-  display: inline-block;
-  float: right;
-}
-#es_marketsort_name {
-  display: block;
-  float: none;
-}
-#es_marketsort_game {
-  width: 165px;
-  padding-left: 5px;
-}
-.es_marketsort.active span:last-child::after {
-  display: inline;
-  margin-left: 4px;
-  margin-right: -16px;
-  color: #eee;
-  font-size: 12px;
-}
-.es_marketsort.active.asc span:last-child::after {
-  content: "▲";
-}
-.es_marketsort.active.desc span:last-child::after {
-  content: "▼";
-}
-#tabContentsMyActiveMarketListingsTable .market_listing_table_header {
-  overflow: hidden;
-}
-#tabContentsMyActiveMarketListingsTable .market_listing_header_namespacer {
-  visibility: hidden;
-}
-.market_listing_listed_position {
-  display: none;
-}
-
-/***************************************
- * Augmented Steam and ITAD menu
- **************************************/
-#es_menu {
-  display: inline-block;
-}
-#es_pulldown {
-  vertical-align: middle;
-  display: inline-block;
-  margin: 1px;
-  padding-left: 4px;
-  line-height: 19px;
-}
-#es_popup {
-  display: none;
-}
-#es_popup .popup_menu .hr {
-  height: 1px;
-  background-color: #82807c;
-  width: 90%;
-  margin: 2px 12px;
-}
-
-#es_itad {
-  display: inline-flex;
-  align-items: center;
-  margin-right: 1em;
-}
-#es_itad_logo {
-  height: 20px;
-}
-#es_itad_status {
-  color: rgb(81, 119, 29);
-  margin-left: 0.4em;
-}
-.es-itad-hover {
-  display: none;
-  position: absolute;
-  top: 0;
-  z-index: 1200;
-  margin-top: 24px;
-}
-#es_itad:hover .es-itad-hover {
-  display: block;
-}
-.es-itad-hover__content {
-  padding: 6px 10px;
-  background-color: #3b3938;
-  border: 1px solid #797979;
-  margin: 12px 12px 12px -12px;
-  box-shadow: 0 0 12px #000000;
-  white-space: nowrap;
-}
-.es-itad-hover__arrow {
-  background-image: url(https://steamcommunity-a.akamaihd.net/public/shared/images/popups/hover_arrow_both.gif);
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  width: 26px;
-  height: 13px;
-}
-.es-itad-hover__last-import {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-column-gap: 1em;
-}
-.es-itad-hover__sync-now {
-  display: flex;
-  justify-content: center;
-}
-.es-itad-hover__sync-now-text {
-  font-weight: bolder;
-  font-size: medium;
-  cursor: pointer;
-  text-decoration: underline;
-  margin-right: 5px;
-}
-.es-itad-hover__sync-success {
-  color: rgb(81, 119, 29);
-}
-.es-itad-hover__sync-now .loader,
-.es-itad-hover__sync-failed,
-.es-itad-hover__sync-success {
-  display: none;
-}
-.es-itad-hover__sync-now--failed .es-itad-hover__sync-failed,
-.es-itad-hover__sync-now--success .es-itad-hover__sync-success,
-.es-itad-hover__sync-now--loading .loader {
-  display: block;
-}
-
-/* https://www.w3schools.com/howto/howto_css_loader.asp */
-.loader {
-  border: 1px solid #f3f3f3;
-  border-top: 1px solid #3498db;
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/***************************************
- * Store app pages
- * addMetacriticUserScore(),addOpenCritic()
+ * App pages
+ * FMetacriticUserScore, FOpenCritic
  **************************************/
 #game_area_userscore {
   margin-top: 6px;
@@ -2068,101 +1034,6 @@ img.astats_icon {
 }
 
 /***************************************
- * Store app pages
- * addBadgeProgress()
- **************************************/
-.es_badges_progress_block .es_cards_numbers {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: 44px;
-  color: #67c1f5;
-  clear: both;
-}
-.es_badges_progress_block .es_cards_owned {
-  padding-top: 8px;
-}
-.es_progress_block {
-  overflow: hidden;
-}
-.es_progress_block .badge_info_description {
-  width: 275px;
-}
-.es_progress_block .badge_empty_circle {
-  margin: 0px 46px 14px 8px;
-  border-radius: 46px;
-}
-
-/***************************************
- * Store app pages
- * FDLCCheckboxes
- **************************************/
-#es_selected_btn {
-  float: left;
-  margin-top: 4px;
-  display: none;
-}
-#game_area_dlc_expanded + #es_selected_btn {
-  margin-bottom: 10px;
-}
-
-#es_dlc_option_panel {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid black;
-  height: 28px;
-  padding-left: 15px;
-}
-.es_dlc_option {
-  display: inline-block;
-  line-height: 19px;
-  padding: 0 7px;
-  color: #67c1f5;
-  background-color: rgba(103, 193, 245, 0.2);
-  box-shadow: none;
-  margin-right: 2px;
-  border-radius: 2px;
-  cursor: pointer;
-  margin-top: 5px;
-  font-size: 11px;
-}
-.es_dlc_option:hover {
-  text-decoration: none;
-  color: #ffffff;
-  background: linear-gradient(135deg, #67c1f5 0%, #417a9b 100%);
-}
-
-.game_area_dlc_row:hover .ds_flag {
-  display: none; /* hide dlc flag due to checkboxes (if highlighting is disabled) */
-}
-
-.game_area_dlc_name {
-  margin-left: 23px; /* move title out of the way */
-}
-
-label.es_dlc_label {
-  position: absolute;
-  padding: 4px 11px 1px;
-  z-index: 999;
-}
-label.es_dlc_label > input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: #545454;
-  padding: 6px;
-  border-radius: 4px;
-  border: 1px solid #343434;
-  outline: none;
-}
-label.es_dlc_label > input:checked::after {
-  content: "✔";
-  color: #8bc53f;
-  font-size: 12px;
-  position: absolute;
-  bottom: 4px;
-  left: 13px;
-}
-
-/***************************************
  * Points Shop
  * FBackgroundPreviewLink
  **************************************/
@@ -2176,8 +1047,41 @@ label.es_dlc_label > input:checked::after {
 }
 
 /***************************************
- * Market
- * market_popular_refresh_toggle()
+ * Market home
+ * FMarketLowestPrice
+ **************************************/
+.es_market_listing_lowest {
+  width: 115px;
+}
+.es_priced_higher {
+  color: #ff1717;
+}
+.es_priced_lower {
+  color: #60ad0a;
+}
+
+/***************************************
+ * Market home
+ * FMarketStats
+ **************************************/
+#es_market_summary_status {
+  display: flex;
+  align-items: center;
+}
+#es_market_summary_status img {
+  margin-right: 10px;
+}
+.es_market_summary_item {
+  float: right;
+  line-height: inherit !important;
+  vertical-align: top;
+  line-height: 32px;
+  margin-left: 5px;
+}
+
+/***************************************
+ * Market home
+ * FPopularRefreshToggle
  **************************************/
 #es_popular_refresh_toggle {
   position: absolute;
@@ -2240,6 +1144,7 @@ label.es_dlc_label > input:checked::after {
 }
 
 
+/* Customizer, SpamComments */
 .esi-shown {
   display: block !important;
 }
@@ -2281,36 +1186,7 @@ label.es_dlc_label > input:checked::after {
   display: none;
 }
 
-/** Favorite emoticons */
-.es_emoticons.emoticon_popup {
-  max-width: 352px;
-}
-.es_emoticons .es_emoticons_content {
-  margin-bottom: 10px;
-  min-height: 32px;
-  line-height: 32px;
-  text-align: center;
-  max-height: none;
-  display: flex;
-}
-.es_emoticons_content .no-access {
-  cursor: help;
-  opacity: 0.4;
-}
-#es_fav_remove {
-  width: 10%;
-  background-image: url(https://steamcommunity-a.akamaihd.net/economy/emoticon/remove);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-#es_fav_emoticons {
-  width: 90%;
-}
-
-
-.es_hltb .details_block span {
-  float: right;
-}
+/* .game_details styles from https://github.com/SteamDatabase/SteamTracking/blob/8719637a11e9e707f0adb4d07987cd9423d0d828/steamcommunity.com/public/shared/css/store_game_shared.css#L389 */
 
 .es_wsgf .details_block {
   display: flex;
@@ -2334,52 +1210,11 @@ label.es_dlc_label > input:checked::after {
 /***************************************
  * Global Steam Client button
  **************************************/
-.header_installsteam_btn_content.es_steamclient_btn {
-  background-image: url('https://steamstore-a.akamaihd.net/public/images/v6/icon_platform_linux.png');
+.es_steamclient_btn .header_installsteam_btn_content,
+.es_steamclient_btn.is-react {
+  background-image: url('https://store.cloudflare.steamstatic.com/public/images/v6/icon_platform_linux.png');
   background-position: 5px;
   padding-left: 28px;
-}
-
-/***************************************
- * User profiles
- * FCommunityProfileLinks
- **************************************/
-.es_sites_icons {
-  display: inline-flex;
-  align-items: center;
-}
-.es_sites_icons:not(.es_none)::before, .es_sites_custom_icon {
-  content: "";
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin: 0 5px 0 0;
-  background-color: #222222;
-  background-repeat: no-repeat;
-  background-size: 16px !important;
-  background-position: 2px 2px !important;
-  padding: 2px;
-  border-radius: 3px;
-  box-shadow: inset 0 0 1px 1px rgb(0, 0, 0), 0 0 0 1px rgba(193, 193, 193, 0.17);
-  vertical-align: top;
-}
-.es_sites_icons.es_gray::before, .es_sites_icons .es_gray {
-  filter: grayscale(100%);
-}
-
-/***************************************
- * User profiles
- * FChatDropdownOptions
- **************************************/
-#profile_chat_dropdown {
-  display: none;
-}
-#profile_chat_dropdown .shadow_content {
-  box-shadow: 0 0 12px #000;
-}
-#profile_chat_dropdown .popup_menu_item img {
-  position: relative;
-  top: 3px;
 }
 
 /***************************************
@@ -2475,38 +1310,6 @@ label.es_dlc_label > input:checked::after {
 
 /***************************************
  * User profiles
- * FViewSteamId
- **************************************/
-.es-copy {
-  display: flex;
-  align-items: baseline;
-}
-.es-copy:hover .es-copy__id {
-  text-decoration: underline;
-}
-.es-copy:hover .es-copy__icon {
-  opacity: 1;
-}
-.es-copy .es-copy__icon {
-  filter: invert(55%);
-  height: 1.2em;
-  margin-left: 5px;
-  opacity: 0;
-}
-.es-copy__copied {
-  opacity: 0;
-  transition: opacity .2s .6s;
-  margin-left: 20px;
-  color: #999;
-  font-size: 0.95em;
-}
-.es-copy.is-copied .es-copy__copied {
-  opacity: 1;
-  transition: opacity .2s 0s;
-}
-
-/***************************************
- * User profiles
  * FCustomStyle
  **************************************/
 .es_profile_style.es_style_clear {
@@ -2555,386 +1358,6 @@ label.es_dlc_label > input:checked::after {
   background-size: auto;
 }
 
-/***************************************
- * addCustomTags() to community guides
- *
- **************************************/
-.es_tag {
-	text-transform: capitalize;
-}
-.es_tag::placeholder {
-	text-transform: none;
-}
-
-/*
- * Flags
- */
-.es-flag {
-  margin-right: 4px;
-}
-
-.es-flag:before {
-  content: "";
-  position: relative;
-  width: 16px;
-  height: 11px;
-  margin-right: 4px;
-  display: inline-block;
-  background-repeat: no-repeat;
-  background-position: top left;
-}
-
-.es-flag.es-flag--ad:before {background-position: -16px 0}
-.es-flag.es-flag--ae:before {background-position: -32px 0}
-.es-flag.es-flag--af:before {background-position: -48px 0}
-.es-flag.es-flag--ag:before {background-position: -64px 0}
-.es-flag.es-flag--ai:before {background-position: -80px 0}
-.es-flag.es-flag--al:before {background-position: -96px 0}
-.es-flag.es-flag--am:before {background-position: -112px 0}
-.es-flag.es-flag--an:before {background-position: -128px 0}
-.es-flag.es-flag--ao:before {background-position: -144px 0}
-.es-flag.es-flag--ar:before {background-position: -160px 0}
-.es-flag.es-flag--as:before {background-position: -176px 0}
-.es-flag.es-flag--at:before {background-position: -192px 0}
-.es-flag.es-flag--au:before {background-position: -208px 0}
-.es-flag.es-flag--aw:before {background-position: -224px 0}
-.es-flag.es-flag--az:before {background-position: -240px 0}
-.es-flag.es-flag--ba:before {background-position: 0 -11px}
-.es-flag.es-flag--bb:before {background-position: -16px -11px}
-.es-flag.es-flag--bd:before {background-position: -32px -11px}
-.es-flag.es-flag--be:before {background-position: -48px -11px}
-.es-flag.es-flag--bf:before {background-position: -64px -11px}
-.es-flag.es-flag--bg:before {background-position: -80px -11px}
-.es-flag.es-flag--bh:before {background-position: -96px -11px}
-.es-flag.es-flag--bi:before {background-position: -112px -11px}
-.es-flag.es-flag--bj:before {background-position: -128px -11px}
-.es-flag.es-flag--bm:before {background-position: -144px -11px}
-.es-flag.es-flag--bn:before {background-position: -160px -11px}
-.es-flag.es-flag--bo:before {background-position: -176px -11px}
-.es-flag.es-flag--br:before {background-position: -192px -11px}
-.es-flag.es-flag--bs:before {background-position: -208px -11px}
-.es-flag.es-flag--bt:before {background-position: -224px -11px}
-.es-flag.es-flag--bv:before {background-position: -240px -11px}
-.es-flag.es-flag--bw:before {background-position: 0 -22px}
-.es-flag.es-flag--by:before {background-position: -16px -22px}
-.es-flag.es-flag--bz:before {background-position: -32px -22px}
-.es-flag.es-flag--ca:before {background-position: -48px -22px}
-.es-flag.es-flag--catalonia:before {background-position: -64px -22px}
-.es-flag.es-flag--cd:before {background-position: -80px -22px}
-.es-flag.es-flag--cf:before {background-position: -96px -22px}
-.es-flag.es-flag--cg:before {background-position: -112px -22px}
-.es-flag.es-flag--ch:before {background-position: -128px -22px}
-.es-flag.es-flag--ci:before {background-position: -144px -22px}
-.es-flag.es-flag--ck:before {background-position: -160px -22px}
-.es-flag.es-flag--cl:before {background-position: -176px -22px}
-.es-flag.es-flag--cm:before {background-position: -192px -22px}
-.es-flag.es-flag--cn:before {background-position: -208px -22px}
-.es-flag.es-flag--co:before {background-position: -224px -22px}
-.es-flag.es-flag--cr:before {background-position: -240px -22px}
-.es-flag.es-flag--cu:before {background-position: 0 -33px}
-.es-flag.es-flag--cv:before {background-position: -16px -33px}
-.es-flag.es-flag--cw:before {background-position: -32px -33px}
-.es-flag.es-flag--cy:before {background-position: -48px -33px}
-.es-flag.es-flag--cz:before {background-position: -64px -33px}
-.es-flag.es-flag--de:before {background-position: -80px -33px}
-.es-flag.es-flag--dj:before {background-position: -96px -33px}
-.es-flag.es-flag--dk:before {background-position: -112px -33px}
-.es-flag.es-flag--dm:before {background-position: -128px -33px}
-.es-flag.es-flag--do:before {background-position: -144px -33px}
-.es-flag.es-flag--dz:before {background-position: -160px -33px}
-.es-flag.es-flag--ec:before {background-position: -176px -33px}
-.es-flag.es-flag--ee:before {background-position: -192px -33px}
-.es-flag.es-flag--eg:before {background-position: -208px -33px}
-.es-flag.es-flag--eh:before {background-position: -224px -33px}
-.es-flag.es-flag--england:before {background-position: -240px -33px}
-.es-flag.es-flag--er:before {background-position: 0 -44px}
-.es-flag.es-flag--es:before {background-position: -16px -44px}
-.es-flag.es-flag--et:before {background-position: -32px -44px}
-.es-flag.es-flag--eu1:before {background-position: -48px -44px}
-.es-flag.es-flag--fi:before {background-position: -64px -44px}
-.es-flag.es-flag--fj:before {background-position: -80px -44px}
-.es-flag.es-flag--fk:before {background-position: -96px -44px}
-.es-flag.es-flag--fm:before {background-position: -112px -44px}
-.es-flag.es-flag--fo:before {background-position: -128px -44px}
-.es-flag.es-flag--fr:before {background-position: -144px -44px}
-.es-flag.es-flag--ga:before {background-position: -160px -44px}
-.es-flag.es-flag--gb:before {background-position: -176px -44px}
-.es-flag.es-flag--gd:before {background-position: -192px -44px}
-.es-flag.es-flag--ge:before {background-position: -208px -44px}
-.es-flag.es-flag--gf:before {background-position: -224px -44px}
-.es-flag.es-flag--gg:before {background-position: -240px -44px}
-.es-flag.es-flag--gh:before {background-position: 0 -55px}
-.es-flag.es-flag--gi:before {background-position: -16px -55px}
-.es-flag.es-flag--gl:before {background-position: -32px -55px}
-.es-flag.es-flag--gm:before {background-position: -48px -55px}
-.es-flag.es-flag--gn:before {background-position: -64px -55px}
-.es-flag.es-flag--gp:before {background-position: -80px -55px}
-.es-flag.es-flag--gq:before {background-position: -96px -55px}
-.es-flag.es-flag--gr:before {background-position: -112px -55px}
-.es-flag.es-flag--gs:before {background-position: -128px -55px}
-.es-flag.es-flag--gt:before {background-position: -144px -55px}
-.es-flag.es-flag--gu:before {background-position: -160px -55px}
-.es-flag.es-flag--gw:before {background-position: -176px -55px}
-.es-flag.es-flag--gy:before {background-position: -192px -55px}
-.es-flag.es-flag--hk:before {background-position: -208px -55px}
-.es-flag.es-flag--hm:before {background-position: -224px -55px}
-.es-flag.es-flag--hn:before {background-position: -240px -55px}
-.es-flag.es-flag--hr:before {background-position: 0 -66px}
-.es-flag.es-flag--ht:before {background-position: -16px -66px}
-.es-flag.es-flag--hu:before {background-position: -32px -66px}
-.es-flag.es-flag--ic:before {background-position: -48px -66px}
-.es-flag.es-flag--id:before {background-position: -64px -66px}
-.es-flag.es-flag--ie:before {background-position: -80px -66px}
-.es-flag.es-flag--il:before {background-position: -96px -66px}
-.es-flag.es-flag--im:before {background-position: -112px -66px}
-.es-flag.es-flag--in:before {background-position: -128px -66px}
-.es-flag.es-flag--io:before {background-position: -144px -66px}
-.es-flag.es-flag--iq:before {background-position: -160px -66px}
-.es-flag.es-flag--ir:before {background-position: -176px -66px}
-.es-flag.es-flag--is:before {background-position: -192px -66px}
-.es-flag.es-flag--it:before {background-position: -208px -66px}
-.es-flag.es-flag--je:before {background-position: -224px -66px}
-.es-flag.es-flag--jm:before {background-position: -240px -66px}
-.es-flag.es-flag--jo:before {background-position: 0 -77px}
-.es-flag.es-flag--jp:before {background-position: -16px -77px}
-.es-flag.es-flag--ke:before {background-position: -32px -77px}
-.es-flag.es-flag--kg:before {background-position: -48px -77px}
-.es-flag.es-flag--kh:before {background-position: -64px -77px}
-.es-flag.es-flag--ki:before {background-position: -80px -77px}
-.es-flag.es-flag--km:before {background-position: -96px -77px}
-.es-flag.es-flag--kn:before {background-position: -112px -77px}
-.es-flag.es-flag--kp:before {background-position: -128px -77px}
-.es-flag.es-flag--kr:before {background-position: -144px -77px}
-.es-flag.es-flag--kurdistan:before {background-position: -160px -77px}
-.es-flag.es-flag--kw:before {background-position: -176px -77px}
-.es-flag.es-flag--ky:before {background-position: -192px -77px}
-.es-flag.es-flag--kz:before {background-position: -208px -77px}
-.es-flag.es-flag--la:before {background-position: -224px -77px}
-.es-flag.es-flag--lb:before {background-position: -240px -77px}
-.es-flag.es-flag--lc:before {background-position: 0 -88px}
-.es-flag.es-flag--li:before {background-position: -16px -88px}
-.es-flag.es-flag--lk:before {background-position: -32px -88px}
-.es-flag.es-flag--lr:before {background-position: -48px -88px}
-.es-flag.es-flag--ls:before {background-position: -64px -88px}
-.es-flag.es-flag--lt:before {background-position: -80px -88px}
-.es-flag.es-flag--lu:before {background-position: -96px -88px}
-.es-flag.es-flag--lv:before {background-position: -112px -88px}
-.es-flag.es-flag--ly:before {background-position: -128px -88px}
-.es-flag.es-flag--ma:before {background-position: -144px -88px}
-.es-flag.es-flag--mc:before {background-position: -160px -88px}
-.es-flag.es-flag--md:before {background-position: -176px -88px}
-.es-flag.es-flag--me:before {background-position: -192px -88px}
-.es-flag.es-flag--mg:before {background-position: -208px -88px}
-.es-flag.es-flag--mh:before {background-position: -224px -88px}
-.es-flag.es-flag--mk:before {background-position: -240px -88px}
-.es-flag.es-flag--ml:before {background-position: 0 -99px}
-.es-flag.es-flag--mm:before {background-position: -16px -99px}
-.es-flag.es-flag--mn:before {background-position: -32px -99px}
-.es-flag.es-flag--mo:before {background-position: -48px -99px}
-.es-flag.es-flag--mp:before {background-position: -64px -99px}
-.es-flag.es-flag--mq:before {background-position: -80px -99px}
-.es-flag.es-flag--mr:before {background-position: -96px -99px}
-.es-flag.es-flag--ms:before {background-position: -112px -99px}
-.es-flag.es-flag--mt:before {background-position: -128px -99px}
-.es-flag.es-flag--mu:before {background-position: -144px -99px}
-.es-flag.es-flag--mv:before {background-position: -160px -99px}
-.es-flag.es-flag--mw:before {background-position: -176px -99px}
-.es-flag.es-flag--mx:before {background-position: -192px -99px}
-.es-flag.es-flag--my:before {background-position: -208px -99px}
-.es-flag.es-flag--mz:before {background-position: -224px -99px}
-.es-flag.es-flag--na:before {background-position: -240px -99px}
-.es-flag.es-flag--nc:before {background-position: 0 -110px}
-.es-flag.es-flag--ne:before {background-position: -16px -110px}
-.es-flag.es-flag--nf:before {background-position: -32px -110px}
-.es-flag.es-flag--ng:before {background-position: -48px -110px}
-.es-flag.es-flag--ni:before {background-position: -64px -110px}
-.es-flag.es-flag--nl:before {background-position: -80px -110px}
-.es-flag.es-flag--no:before {background-position: -96px -110px}
-.es-flag.es-flag--np:before {background-position: -112px -110px}
-.es-flag.es-flag--nr:before {background-position: -128px -110px}
-.es-flag.es-flag--nu:before {background-position: -144px -110px}
-.es-flag.es-flag--nz:before {background-position: -160px -110px}
-.es-flag.es-flag--om:before {background-position: -176px -110px}
-.es-flag.es-flag--pa:before {background-position: -192px -110px}
-.es-flag.es-flag--pe:before {background-position: -208px -110px}
-.es-flag.es-flag--pf:before {background-position: -224px -110px}
-.es-flag.es-flag--pg:before {background-position: -240px -110px}
-.es-flag.es-flag--ph:before {background-position: 0 -121px}
-.es-flag.es-flag--pk:before {background-position: -16px -121px}
-.es-flag.es-flag--pl:before {background-position: -32px -121px}
-.es-flag.es-flag--pm:before {background-position: -48px -121px}
-.es-flag.es-flag--pn:before {background-position: -64px -121px}
-.es-flag.es-flag--pr:before {background-position: -80px -121px}
-.es-flag.es-flag--ps:before {background-position: -96px -121px}
-.es-flag.es-flag--pt:before {background-position: -112px -121px}
-.es-flag.es-flag--pw:before {background-position: -128px -121px}
-.es-flag.es-flag--py:before {background-position: -144px -121px}
-.es-flag.es-flag--qa:before {background-position: -160px -121px}
-.es-flag.es-flag--re:before {background-position: -176px -121px}
-.es-flag.es-flag--ro:before {background-position: -192px -121px}
-.es-flag.es-flag--rs:before {background-position: -208px -121px}
-.es-flag.es-flag--ru:before {background-position: -224px -121px}
-.es-flag.es-flag--rw:before {background-position: -240px -121px}
-.es-flag.es-flag--sa:before {background-position: 0 -132px}
-.es-flag.es-flag--sb:before {background-position: -16px -132px}
-.es-flag.es-flag--sc:before {background-position: -32px -132px}
-.es-flag.es-flag--scotland:before {background-position: -48px -132px}
-.es-flag.es-flag--sd:before {background-position: -64px -132px}
-.es-flag.es-flag--se:before {background-position: -80px -132px}
-.es-flag.es-flag--sg:before {background-position: -96px -132px}
-.es-flag.es-flag--sh:before {background-position: -112px -132px}
-.es-flag.es-flag--si:before {background-position: -128px -132px}
-.es-flag.es-flag--sk:before {background-position: -144px -132px}
-.es-flag.es-flag--sl:before {background-position: -160px -132px}
-.es-flag.es-flag--sm:before {background-position: -176px -132px}
-.es-flag.es-flag--sn:before {background-position: -192px -132px}
-.es-flag.es-flag--so:before {background-position: -208px -132px}
-.es-flag.es-flag--somaliland:before {background-position: -224px -132px}
-.es-flag.es-flag--sr:before {background-position: -240px -132px}
-.es-flag.es-flag--ss:before {background-position: 0 -143px}
-.es-flag.es-flag--st:before {background-position: -16px -143px}
-.es-flag.es-flag--sv:before {background-position: -32px -143px}
-.es-flag.es-flag--sx:before {background-position: -48px -143px}
-.es-flag.es-flag--sy:before {background-position: -64px -143px}
-.es-flag.es-flag--sz:before {background-position: -80px -143px}
-.es-flag.es-flag--tc:before {background-position: -96px -143px}
-.es-flag.es-flag--td:before {background-position: -112px -143px}
-.es-flag.es-flag--tf:before {background-position: -128px -143px}
-.es-flag.es-flag--tg:before {background-position: -144px -143px}
-.es-flag.es-flag--th:before {background-position: -160px -143px}
-.es-flag.es-flag--tj:before {background-position: -176px -143px}
-.es-flag.es-flag--tk:before {background-position: -192px -143px}
-.es-flag.es-flag--tl:before {background-position: -208px -143px}
-.es-flag.es-flag--tm:before {background-position: -224px -143px}
-.es-flag.es-flag--tn:before {background-position: -240px -143px}
-.es-flag.es-flag--to:before {background-position: 0 -154px}
-.es-flag.es-flag--tr:before {background-position: -16px -154px}
-.es-flag.es-flag--tt:before {background-position: -32px -154px}
-.es-flag.es-flag--tv:before {background-position: -48px -154px}
-.es-flag.es-flag--tw:before {background-position: -64px -154px}
-.es-flag.es-flag--tz:before {background-position: -80px -154px}
-.es-flag.es-flag--ua:before {background-position: -96px -154px}
-.es-flag.es-flag--ug:before {background-position: -112px -154px}
-.es-flag.es-flag--um:before {background-position: -128px -154px}
-.es-flag.es-flag--us:before {background-position: -144px -154px}
-.es-flag.es-flag--uy:before {background-position: -160px -154px}
-.es-flag.es-flag--uz:before {background-position: -176px -154px}
-.es-flag.es-flag--va:before {background-position: -192px -154px}
-.es-flag.es-flag--vc:before {background-position: -208px -154px}
-.es-flag.es-flag--ve:before {background-position: -224px -154px}
-.es-flag.es-flag--vg:before {background-position: -240px -154px}
-.es-flag.es-flag--vi:before {background-position: 0 -165px}
-.es-flag.es-flag--vn:before {background-position: -16px -165px}
-.es-flag.es-flag--vu:before {background-position: -32px -165px}
-.es-flag.es-flag--wales:before {background-position: -48px -165px}
-.es-flag.es-flag--wf:before {background-position: -64px -165px}
-.es-flag.es-flag--ws:before {background-position: -80px -165px}
-.es-flag.es-flag--ye:before {background-position: -96px -165px}
-.es-flag.es-flag--yt:before {background-position: -112px -165px}
-.es-flag.es-flag--za:before {background-position: -128px -165px}
-.es-flag.es-flag--zanzibar:before {background-position: -144px -165px}
-.es-flag.es-flag--zm:before {background-position: -160px -165px}
-.es-flag.es-flag--zw:before {background-position: -176px -165px}
-.es-flag.es-flag--eu2:before {background-position: -192px -165px}
-
-.es-sortbox {
-  color: #fff;
-  float: right;
-  margin-top: 4px;
-}
-.es-sortbox--reviews {
-  padding: 20px 0 5px 0;
-}
-.es-sortbox--friends, .es-sortbox--groups {
-  flex-grow: 2;
-  margin-right: 20px;
-  margin-top: 0px;
-  text-align: right;
-}
-
-.es-sortbox__label {
-  font-size: 12px;
-  display: inline-block;
-  margin-right: 4px;
-}
-.es-sortbox__container {
-  display: inline-block;
-  vertical-align: middle;
-  width: 120px;
-  position: relative;
-  font-size: 12px;
-  text-align: left;
-}
-.es-sortbox__reverse {
-  cursor: pointer;
-}
-.es-sortbox__container a.trigger, .es-sortbox__container a.activetrigger {
-  display: block;
-  color: #67c1f5;
-  padding: 0 30px 0 8px;
-  font-size: 12px;
-  line-height: 21px;
-  border: 0;
-  border-radius: 3px;
-  text-decoration: none;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  position: relative;
-}
-.es-sortbox__container a.trigger {
-  background: rgba( 103, 193, 245, 0.1 );
-}
-.es-sortbox__container a.activetrigger {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  z-index: 91;
-  position: relative;
-  color: #ffffff;
-  background: #67c1f5;
-}
-.es-sortbox__container a.trigger::after, .es-sortbox_container a.activetrigger::after {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 20px;
-  background: url(https://steamstore-a.akamaihd.net/public/images/v6/ico/ico_arrow_dn_for_select.png) no-repeat left center;
-  content: '';
-}
-.es-dropdown {
-  position: relative;
-}
-.es-dropdown > ul.dropdownhidden {
-  display: none;
-}
-.es-dropdown > ul {
-  list-style-type: none;
-    line-height: 22px;
-    margin: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 0;
-    z-index: 900;
-    overflow: auto;
-    overflow-x: hidden;
-    box-shadow: 0 0 5px 0 #000000;
-    background: #417A9B;
-}
-.es-dropdown > ul a {
-  padding: 0 10px;
-  display: block;
-  text-decoration: none;
-  color: #e5e4dc;
-  white-space: nowrap;
-}
-.es-dropdown > ul a.highlighted_selection {
-  color: #ffffff;
-  background-color: #67c1f5;
-  background: linear-gradient(-60deg, #417a9b 5%,#67c1f5 95%);
-}
 
 /* || SEARCH PAGE FILTERS */
 
@@ -2947,7 +1370,8 @@ label.es_dlc_label > input:checked::after {
 .search_results.mixed .as-hide-mixed,
 .search_results.negative .as-hide-negative,
 .search_results.reviews-score .as-reviews-score,
-.search_results .as-reviews-count {
+.search_results .as-reviews-count,
+.search_results .as-discount-percent {
   height: 0;
   margin: 0;
   border: none;
@@ -2973,11 +1397,11 @@ label.es_dlc_label > input:checked::after {
   padding: 7.5px 8px !important; /* 7.5px is the (line-height (28px) - font-size (13px)) / 2 */
 }
 
-.as-reviews-count-filter {
+.as-reviews-count-filter, .as-discount-percent-filter {
   margin-top: 10px;
 }
 
-.as-reviews-count-filter__header {
+.as-reviews-count-filter__header, .as-discount-percent-filter__header {
   margin-left: 8px;
   font-size: 13px;
   font-family: "Motiva Sans", Sans-serif;
@@ -2985,7 +1409,7 @@ label.es_dlc_label > input:checked::after {
   color: #9fbbcb;
 }
 
-.as-reviews-count-filter__content {
+.as-reviews-count-filter__content, .as-discount-percent-filter__content {
   display: flex;
   align-items: center;
   padding: 0 12px;
@@ -2993,7 +1417,7 @@ label.es_dlc_label > input:checked::after {
 }
 
 /* https://github.com/SteamDatabase/SteamTracking/blob/ad1bfe7966cbfc3a8cdff7d0fcc9f3437425b7a8/store.steampowered.com/public/css/v6/search.css#L546 */
-.as-reviews-count-filter__input {
+.as-reviews-count-filter__input, .as-discount-percent-filter__input  {
   min-width: 0;
   background-color: rgba( 0, 0, 0, 0.2 );
   color: #fff;
@@ -3073,4 +1497,63 @@ label.es_dlc_label > input:checked::after {
   display: block;
   margin: auto;
   max-width: 100%;
+}
+
+
+.es_slider_toggle i,
+.es_screenshot_fullscreen_toggle i {
+  background-image: url("extension://img/fullscreen-icons.gif");
+}
+
+.es_screenshot_open_btn i {
+  background-image: url('extension://img/screenshot_open.png');
+}
+
+
+.es_external_icon::after {
+  content: " " url("extension://img/ico_external_link.gif"); /* https://store.steampowered.com/public/images/v5/ico_external_link.gif */
+  border: 0;
+  vertical-align: baseline;
+}
+
+
+/* || DOUBLE SLIDER */
+
+/* Displays the lower stacked thumb above higher stacked track */
+.as-double-slider__input::-webkit-slider-thumb {
+  position: relative;
+}
+
+/*
+ * Firefox' range input elements ignore certain properties, in particular "position",
+ * which restricts us from setting z-indexes.
+ *
+ * These rules allow the thumb with the lower stack level to receive all inputs events
+ * that the user would expect it to.
+ * Otherwise, due to the track of the other range input actually overlapping the lower
+ * stacked input (but not visually), some pointer events would unintentionally target the
+ * higher stacked input, although intended otherwise.
+ *
+ * A consequence of this workaround is that the track itself is not clickable anymore
+ * and the thumbs have to be dragged to change their value.
+ *
+ * See https://css-tricks.com/sliding-nightmare-understanding-range-input/ for more
+ * compatibility problems.
+ */
+
+/* Fixes overlapping of track with thumb */
+.as-double-slider__input--lower::-moz-range-track {
+  background-color: transparent;
+}
+
+/* Disallow clicking anywhere on the range input... */
+@supports (-moz-appearance:none) {
+  .as-double-slider__input {
+    pointer-events: none;
+  }
+}
+
+/* ...except on the thumbs. */
+.as-double-slider__input::-moz-range-thumb {
+  pointer-events: all;
 }
